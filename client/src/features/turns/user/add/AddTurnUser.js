@@ -10,8 +10,6 @@ const AddTurnUser = () => {
     const [turnDate, setTurnDate] = useState("")
     const [startMin, setStartMin] = useState("00")
     const [startHou, setStartHou] = useState("09")
-    const [endMin, setEndMin] = useState("00")
-    const [endHou, setEndHou] = useState("09")
     const [description, setDescription] = useState("")
     const [error, setError] = useState(false)
     const [message, setMessage] = useState("")
@@ -22,12 +20,20 @@ const AddTurnUser = () => {
             navigate("/dash/turns-user")
     }, [isSuccess])
     const user = useAuth()
-
+    const addTime = (start, time) => {
+        const end = { hour: start.hour, minutes: start.minutes }
+        end.minutes += time
+        end.hour += (end.minutes / 60)
+        end.minutes %= 60
+        end.hour-=(end.hour%1)
+        return end
+    }
     const checkDate = () => {
+        const end=addTime({hour:startHou,minutes:startMin},description.time)
         const appointmentDate = new Date(turnDate);
         const dayOfWeek = appointmentDate.getDay();
         const newTurnStartTime = Number(startHou) * 100 + Number(startMin);
-        const newTurnEndTime = Number(endHou) * 100 + Number(endMin);
+        const newTurnEndTime = Number(end.hour) * 100 + Number(end.minutes);
         if (dayOfWeek === 2) {
             setError(true)
             setMessage("לא ניתן לקבוע תור ביום שלישי")
@@ -68,10 +74,6 @@ const AddTurnUser = () => {
                 hour: (Number)(startHou),
                 minutes: (Number)(startMin)
             },
-            end: {
-                hour: (Number)(endHou),
-                minutes: (Number)(endMin)
-            },
             description
         }
         // console.log(data);
@@ -89,7 +91,6 @@ const AddTurnUser = () => {
     return (
         <div className="add-turn-container">
             <form onSubmit={submitForm} className="add-turn-form">
-                {/* <h6>תאריך</h6> */}
                 <input type="date" name="turnDate" required onChange={(e) => setTurnDate(e.target.value)} />
                 <select name="type" onChange={(e) => setDescription(e.target.value)}>
                     <option value="" >תיאור</option>
@@ -105,7 +106,6 @@ const AddTurnUser = () => {
                     <option value="30">30</option>
                     <option value="45">45</option>
                 </select>
-                {/* <input type="text" placeholder="שעת התחלה -דקות" required onChange={(e) => setStartMin(e.target.value)} /> */}
                 <select onChange={(e) => setStartHou(e.target.value)} >
                     <option value="09">09</option>
                     <option value="10">10</option>
@@ -117,27 +117,6 @@ const AddTurnUser = () => {
                     <option value="16">16</option>
                     <option value="17">17</option>
                 </select>
-                {/* <input type="text" placeholder="שעת התחלה -שעה" required onChange={(e) => setStartHou(e.target.value)} /> */}
-                <select onChange={(e) => setEndMin(e.target.value)} defaultValue="00">
-                    <option value="00">00</option>
-                    <option value="15">15</option>
-                    <option value="30">30</option>
-                    <option value="45">45</option>
-                </select>
-                {/* <input type="text" placeholder="שעת סיום -דקות" required onChange={(e) => setEndMin(e.target.value)} /> */}
-                <select onChange={(e) => setEndHou(e.target.value)} defaultValue="09">
-                    <option value="09">09</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                </select>
-                {/* <input type="text" placeholder="שעת סיום -שעה" required onChange={(e) => setEndHou(e.target.value)} /> */}
-
 
                 <button type="submit">שלח</button>
             </form>
