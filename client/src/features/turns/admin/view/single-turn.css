@@ -1,0 +1,63 @@
+.single-turn-container {
+    display: flex;
+    gap: 50px;
+    margin-top: 20px;
+  }
+  
+  .single-turn-info {
+    flex: 1;
+    background-color: var(--bgSoft);
+    padding: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: var(--textSoft);
+    height: max-content;
+  }
+  
+  .single-turn-img-container{
+    width: 100%;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .single-turn-img-container img{
+   object-fit: contain;
+   width: 100% !important;
+  }
+  
+  .single-turn-form-container {
+    flex: 3;
+    background-color: var(--bgSoft);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .single-turn-form{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .single-turn-form input, .single-turn-form textarea, .single-turn-form select{
+    padding: 20px;
+    border: 2px solid #2e374a;
+    border-radius: 5px;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 10px 0px;
+  }
+  
+  .single-turn-form label{
+    font-size: 12px;
+  }
+  
+  .single-turn-form button{
+    width: 100%;
+    padding: 20px;
+    background-color: teal;
+    color: var(--text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }

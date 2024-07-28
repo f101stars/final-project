@@ -1,0 +1,41 @@
+.add-type-container {
+    background-color: var(--bgSoft);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .add-type-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .add-type-form input,
+  .add-type-form textarea,
+  .add-type-form select {
+    padding: 30px;
+    background-color: var(--bg);
+    color: var(--text);
+    border: 2px solid #2e374a;
+    border-radius: 5px;
+    margin-bottom: 30px;
+  }
+  
+  .add-type-form input, .add-type-form select {
+    width: 45%;
+  }
+  
+  .add-type-form textarea{
+    width: 100%;
+  }
+  
+  .add-type-form button{
+    width: 100%;
+    padding: 30px;
+    background-color: teal;
+    color: var(--text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
