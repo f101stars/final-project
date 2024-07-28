@@ -1,5 +1,13 @@
 const Turn = require('../models/Turn');
-
+const Type = require('../models/Type')
+const addTime = (start, time) => {
+    const end = { hour: start.hour, minutes: start.minutes }
+    end.minutes += time
+    end.hour += (end.minutes / 60)
+    end.minutes %= 60
+    end.hour-=(end.hour%1)
+    return end
+}
 const checkTime = (newTurnDate, newTurnStart, newTurnEnd, existingTurns) => {
     const newTurnStartTime = newTurnStart.hour * 100 + newTurnStart.minutes;
     const newTurnEndTime = newTurnEnd.hour * 100 + newTurnEnd.minutes;
@@ -56,9 +64,10 @@ const getTurnById = async (req, res) => {
     res.json(turn)
 }
 const creatTurn = async (req, res) => {
-    const { turnDate, user, start, end, description, notes } = req.body;
+    const { turnDate, user, start, description, notes } = req.body;
     const turns = await Turn.find().lean();
-
+    const type= await Type.findById(description).lean()
+    const end = addTime(start, type.time)
     // Check if appointment day is allowed
     const appointmentDate = new Date(turnDate);
     const dayOfWeek = appointmentDate.getDay();
