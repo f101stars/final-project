@@ -17,6 +17,7 @@ import TypesList from './features/types/list/TypesList';
 import AddType from './features/types/add/AddType';
 import SingleType from './features/types/view/SingleType';
 import Profile from './features/profile/Profile';
+import PricesList from './features/prices/list/PricesList';
 
 function App() {
   return (
@@ -52,8 +53,11 @@ function App() {
                     <Route index element={<TurnsListUser />} />
                     <Route path="add" element={<AddTurnUser />} />
                   </Route>
-                  <Route path='my-profile' element={<Outlet/>}>
-                    <Route path=':id' element={<Profile/>}/>
+                  <Route path='my-profile' element={<Outlet />}>
+                    <Route path=':id' element={<Profile />} />
+                  </Route>
+                  <Route path='prices' element={<Outlet />}>
+                    <Route index element={<PricesList />} />
                   </Route>
                 </Route>
               </Route>

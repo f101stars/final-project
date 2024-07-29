@@ -35,6 +35,8 @@ const SingleType = () => {
           <input type="text" name="title" defaultValue={type.title} />
           <label>זמן</label>
           <input type="text" name="time"  defaultValue={type.time} />
+          <label>מחיר</label>
+          <input type="text" name="price"  defaultValue={type.price} />
           <input name="_id" defaultValue={type._id} type="hidden" />
           <button>עדכן</button>
         </form>

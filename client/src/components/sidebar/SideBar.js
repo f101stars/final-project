@@ -33,7 +33,6 @@ const SideBar = () => {
       { title: "קביעת תור", path: "/dash/turns-admin", icon: <MdCalendarMonth /> },
       { title: "סוגי טיפול", path: "/dash/types", icon: <HiOutlineShoppingBag /> },
       { title: "מוצרים", path: "/dash/products", icon: <HiOutlineShoppingBag /> },
-      { title: "מחירון", path: "/dash/prices", icon: <MdEuro /> },
       { title: "המלצות", path: "/dash/fitback", icon: <AiOutlineLike /> },
       { title: "פעולות", path: "/dash/actions", icon: <MdPendingActions /> },
     ],

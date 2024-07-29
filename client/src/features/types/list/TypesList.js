@@ -6,7 +6,6 @@ import { useGetAllTypesQuery, useDeleteTypeMutation } from "../typesApiSlice"
 import useGetFilePath from '../../../hooks/useGetFilePath';
 const TypesList = () => {
     const [deleteType, { isSuccess: isDeleteSuccess }] = useDeleteTypeMutation()
-    const { getFilePath } = useGetFilePath()
     const deleteClick = (type) => {
         if (window.confirm("בטוח שברצונך למחוק ?")) {
             deleteType({ _id: type._id })
@@ -31,6 +30,7 @@ const TypesList = () => {
                     <tr>
                         <td>תיאור</td>
                         <td>זמן</td>
+                        <td>מחיר</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,7 +38,7 @@ const TypesList = () => {
                         <tr key={type.id}>
                             <td>{type.title}</td>
                             <td>{type.time} דקות</td>
-
+                            <td>{type.price} ש"ח</td>
                             <td>
                                 <div className="types-list-buttons">
                                     <Link className='types-list-button types-list-view' to={`/dash/types/${type._id}`}>

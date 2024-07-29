@@ -21,6 +21,8 @@ const AddType = () => {
             <form onSubmit={submitForm} className="add-type-form">
                 <input type="text" placeholder="תיאור" name="title" required />
                 <input type="text" placeholder="אורך הטיפול" name="time" required />
+                <input type="text" placeholder="מחיר" name="price" required />
+
                 <button type="submit">שלח</button>
             </form>
         </div>

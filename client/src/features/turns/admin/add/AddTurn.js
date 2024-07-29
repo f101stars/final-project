@@ -64,7 +64,6 @@ const AddTurn = () => {
             ((turnStartTime >= newTurnStartTime && turnStartTime < newTurnEndTime) ||
                     (turnEndTime > newTurnStartTime && turnEndTime <= newTurnEndTime))
             ) {
-                console.log("oops....");
                 setError(true)
                 setMessage("התור אינו פנוי!")
                 return
@@ -98,8 +97,8 @@ const AddTurn = () => {
         <div className="add-turn-container">
             <form onSubmit={submitForm} className="add-turn-form">
                 <input type="date" name="turnDate" required onChange={(e) => setTurnDate(e.target.value)}/>
-                <select name="type" onChange={(e) => setDescription(e.target.value)}>
-                <option value="" >תיאור</option>
+                <select name="type" onChange={(e) => setDescription(e.target.value)} >
+                <option value="">תיאור</option>
                     {
                         types.map((type) => {
                             return <option value={type._id} >{type.title}</option>
@@ -112,7 +111,6 @@ const AddTurn = () => {
                     <option value="30">30</option>
                     <option value="45">45</option>                    
                 </select>
-                {/* <input type="text" placeholder="שעת התחלה -דקות" required onChange={(e) => setStartMin(e.target.value)} /> */}
                 <select onChange={(e) => setStartHou(e.target.value)}>
                     <option value="09">09</option>
                     <option value="10">10</option>

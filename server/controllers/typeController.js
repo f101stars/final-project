@@ -18,15 +18,15 @@ const getTypeById = async (req, res) => {
 }
 
 const creatType = async (req, res) => {
-    const { title,time } = req.body
+    const { title,time,price } = req.body
 
-    if (!title || !time)
+    if (!title || !time||!price  )
         return res.status(400).json({
             error: true,
-            massage: "title and time are required!",
+            massage: "title and time and price are required!",
             data: null
         })
-    const type = await Type.create({ title,time })
+    const type = await Type.create({ title,time,price })
     return res.status(201).json({
         error: false,
         massage: "",
@@ -35,12 +35,12 @@ const creatType = async (req, res) => {
 }
 
 const updateType = async (req, res) => {
-    const { _id, title,time } = req.body
+    const { _id, title,time,price } = req.body
     const type = await Type.findById(_id).exec()
-    if (!title || !time)
+    if (!title || !time || !price)
     return res.status(400).json({
         error: true,
-        massage: "title and time are required!",
+        massage: "title and time and price are required!",
         data: null
     })
     if (!type)
@@ -51,7 +51,7 @@ const updateType = async (req, res) => {
         })
     type.time = time
     type.title = title
-    
+    type.price = price
     await type.save()
     return res.status(201).json({
         error: false,
