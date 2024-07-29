@@ -34,6 +34,13 @@ const AddTurnUser = () => {
         const dayOfWeek = appointmentDate.getDay();
         const newTurnStartTime = Number(startHou) * 100 + Number(startMin);
         const newTurnEndTime = Number(end.hour) * 100 + Number(end.minutes);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        if (appointmentDate < today) {
+            setError(true)
+            setMessage("לא ניתן לקבוע תור לתאריך שכבר עבר")
+            return
+        }
         if (dayOfWeek === 2) {
             setError(true)
             setMessage("לא ניתן לקבוע תור ביום שלישי")

@@ -35,6 +35,14 @@ const AddTurn = () => {
         const newTurnStartTime = Number(startHou) * 100 + Number(startMin);
         const newTurnEndTime = Number(end.hour) * 100 + Number(end.minutes);
         const existingTurns = turns.data
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        if (appointmentDate < today) {
+            setError(true)
+            setMessage("לא ניתן לקבוע תור לתאריך שכבר עבר")
+            return
+        }
+
         if (dayOfWeek === 2) {
             setError(true)
             setMessage("לא ניתן לקבוע תור ביום שלישי")
@@ -45,7 +53,7 @@ const AddTurn = () => {
             setMessage("לא ניתן לקבוע תור ביום שבת")
             return
         }
-
+       
         for (const turn of existingTurns) {
             const turnStartTime = turn.start.hour * 100 + turn.start.minutes;
             const turnEndTime = turn.end.hour * 100 + turn.end.minutes;

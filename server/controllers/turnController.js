@@ -5,26 +5,33 @@ const addTime = (start, time) => {
     end.minutes += time
     end.hour += (end.minutes / 60)
     end.minutes %= 60
-    end.hour-=(end.hour%1)
+    end.hour -= (end.hour % 1)
     return end
 }
 const checkTime = (newTurnDate, newTurnStart, newTurnEnd, existingTurns) => {
     const today = new Date();
-    today.setHours(0, 0, 0, 0); 
+    today.setHours(0, 0, 0, 0);
     const newTurnDateObject = new Date(newTurnDate);
     if (newTurnDateObject < today) {
+        console.log("1");
         return false;
     }
     const newTurnStartTime = newTurnStart.hour * 100 + newTurnStart.minutes;
     const newTurnEndTime = newTurnEnd.hour * 100 + newTurnEnd.minutes;
     // console.log("start", newTurnStartTime);
     // console.log("end", newTurnEndTime);
-    if (newTurnEndTime <= newTurnStartTime)
+    if (newTurnEndTime <= newTurnStartTime) {
+        console.log("2");
         return false;
 
+    }
+
     if (newTurnStartTime < 900 || newTurnEndTime > 1700) {
-        if (newTurnEndTime > 1700)
+        if (newTurnEndTime > 1700) {
+            console.log("3");
             return false;
+
+        }
     }
     for (const turn of existingTurns) {
         const turnStartTime = turn.start.hour * 100 + turn.start.minutes;
@@ -35,6 +42,7 @@ const checkTime = (newTurnDate, newTurnStart, newTurnEnd, existingTurns) => {
             ((turnStartTime >= newTurnStartTime && turnStartTime < newTurnEndTime) ||
                 (turnEndTime > newTurnStartTime && turnEndTime <= newTurnEndTime))
         ) {
+            console.log("4");
             return false;
         }
     }
@@ -51,10 +59,10 @@ const getAllTurns = async (req, res) => {
             deleted: false,
             turnDate: { $gte: today }
         })
-        .populate("description")
-        .populate("user")
-        .sort({ turnDate: 1, "start.hour": 1, "start.minutes": 1 }) 
-        .lean();
+            .populate("description")
+            .populate("user")
+            .sort({ turnDate: 1, "start.hour": 1, "start.minutes": 1 })
+            .lean();
 
         if (!turns.length) {
             return res.status(404).json({
@@ -88,8 +96,10 @@ const getTurnById = async (req, res) => {
 }
 const creatTurn = async (req, res) => {
     const { turnDate, user, start, description, notes } = req.body;
-    const turns = await Turn.find().lean();
-    const type= await Type.findById(description).lean()
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const turns = await Turn.find({ deleted: false, turnDate: { $gte: today }}).lean();
+    const type = await Type.findById(description).lean()
     const end = addTime(start, type.time)
     // Check if appointment day is allowed
     const appointmentDate = new Date(turnDate);
@@ -126,7 +136,7 @@ const creatTurn = async (req, res) => {
         });
     }
 };
- 
+
 const updateTurn = async (req, res) => {
     const { id, turnDate, user, start, end, description, notes, type } = req.body;
 
