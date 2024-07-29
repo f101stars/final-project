@@ -20,6 +20,8 @@ app.use("/api/turns",require("./routes/turn"))
 app.use("/api/users",require("./routes/user"))
 app.use("/api/auth",require("./routes/auth"))
 app.use("/api/types",require("./routes/type"))
+app.use("/api/posts",require("./routes/post"))
+
 
 app.get("/", (req, res) => {
     res.send("home page")
