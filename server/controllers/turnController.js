@@ -9,6 +9,12 @@ const addTime = (start, time) => {
     return end
 }
 const checkTime = (newTurnDate, newTurnStart, newTurnEnd, existingTurns) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); 
+    const newTurnDateObject = new Date(newTurnDate);
+    if (newTurnDateObject < today) {
+        return false;
+    }
     const newTurnStartTime = newTurnStart.hour * 100 + newTurnStart.minutes;
     const newTurnEndTime = newTurnEnd.hour * 100 + newTurnEnd.minutes;
     // console.log("start", newTurnStartTime);
@@ -38,7 +44,18 @@ const checkTime = (newTurnDate, newTurnStart, newTurnEnd, existingTurns) => {
 
 const getAllTurns = async (req, res) => {
     try {
-        const turns = await Turn.find({ deleted: false }).populate("description").populate("user").lean();
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        const turns = await Turn.find({
+            deleted: false,
+            turnDate: { $gte: today }
+        })
+        .populate("description")
+        .populate("user")
+        .sort({ turnDate: 1, "start.hour": 1, "start.minutes": 1 }) 
+        .lean();
+
         if (!turns.length) {
             return res.status(404).json({
                 error: true,
@@ -46,6 +63,7 @@ const getAllTurns = async (req, res) => {
                 data: null
             });
         }
+
         res.status(200).json({
             error: false,
             message: "",
@@ -53,6 +71,11 @@ const getAllTurns = async (req, res) => {
         });
     } catch (error) {
         console.log(error);
+        res.status(500).json({
+            error: true,
+            message: "Internal server error",
+            data: null
+        });
     }
 };
 

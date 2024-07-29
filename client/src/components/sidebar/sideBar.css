@@ -1,6 +1,7 @@
 .side-bar {
     position: sticky;
-    top: 40px
+    top: 40px;
+    transition: transform 0.3s ease; /* מעבר חלק כשמסתיר ומציג */
 }
 
 .side-bar-user {
@@ -22,12 +23,11 @@
 
 .side-car-user-username {
     font-weight: 500;
-
 }
 
 .side-car-user-title {
     font-size: 12px;
-    color: var(--textSoft)
+    color: var(--textSoft);
 }
 
 .side-bar-menu-list {
@@ -69,22 +69,65 @@
     width: 100%;
 }
 
+.hiden-menu-container {
+    position: relative;
+}
+
 .hiden-menu {
+    display: none;
     font-size: 50px;
     position: fixed;
     top: 20px;
     right: 20px;
     cursor: pointer;
-    display: none;
+    z-index: 1000; /* מבטיח שהאייקון יהיה מעל התפריט */
 }
 
-@media screen and (max-width:700px) {
-    .hiden-menu {
-        display: block;
-    }
+.side-bar-hidden {
+    background: none;
+    width: 200px; /* גודל התפריט */
+    z-index: 1000; /* מבטיח שהתפריט יהיה מעל תוכן אחר */
+}
 
-    .side-bar {
-        display: none;
-    }
+.hiden-menu-container:hover .side-bar-hidden {
+    display: block; /* הצג את התפריט בעת ריחוף */
+}
+
+@media screen and (max-width: 700px) {
+   /* הסטייל של התפריט הנסתר */
+.side-bar-hidden {
+    display: none; /* התפריט מוסתר כברירת מחדל */
+    position: absolute;
+    top: 0; /* מקם את התפריט מתחת לאייקון */
+    right: 0; /* מקם את התפריט בצד הימני של האייקון */
+    border-radius: 5px; /* פינות מעוגלות לתפריט */
+    width: 250px; /* רוחב התפריט */
+    z-index: 1000; /* מבטיח שהתפריט יופיע מעל כל תוכן אחר */
+    padding: 10px; /* ריפוד פנימי של התפריט */
+    background-color: var(--bgSoft);
+}
+
+.hiden-menu:hover .side-bar-hidden {
+    display: block; /* הצג את התפריט בעת ריחוף */
+}
+
+/* הסטייל של האייקון */
+.hiden-menu {
+    display: block;
+    font-size: 50px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000; /* מבטיח שהאייקון יהיה מעל התפריט */
+}
+
+.side-bar {
+    position: sticky;
+    top: 40px;
+    transition: transform 0.3s ease; /* מעבר חלק כשמסתיר ומציג */
+}
+
+/* שאר הסטיילים שלך... */
 
 }

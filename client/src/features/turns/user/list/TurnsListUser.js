@@ -4,6 +4,11 @@ import { Link, useSearchParams } from 'react-router-dom';
 import "./turns-list-user.css"
 import { useGetAllTurnsQuery, useDeleteTurnMutation} from "../../turnsApiSlice"
 import useAuth from '../../../../hooks/useAuth';
+const formatDate = (dateString) => {
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-GB', options);
+}
 const TurnsListUser = () => {
     const { username } = useAuth()
     const [deleteTurn] = useDeleteTurnMutation()
@@ -31,7 +36,7 @@ const TurnsListUser = () => {
                 <tbody>
                     {filteredData.map((turn) => (
                         <div className='turn-in-list' key={turn.id}>
-                            <h3 className='date'>{turn.turnDate}</h3>
+                            <h3 className='date'>{formatDate(turn.turnDate)}</h3>
                             <div className='times'>
                                 <div><h5>שעת התחלה</h5>
                                     <p>{turn.start.minutes} : {turn.start.hour} </p></div>
