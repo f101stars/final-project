@@ -60,6 +60,14 @@ const updateUser = async (req, res) => {
             massage: "can't find the user",
             data: null
         })
+        if (_id != req.user._id && req.user.roles != "Admin") {
+            return res.status(405).json({
+                error: true,
+                message: "Unauthorized.",
+                data: null
+            })
+        }
+    
     user.fullname = fullname
     user.username = username
     user.email = email

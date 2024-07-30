@@ -76,7 +76,8 @@ const refresh = async (req,res) =>{
                     data: null
                 })
             }
-            const foundUser = await User.findOne({username: decode.username, deleted: false, active:true}).lean()
+            const foundUser = await User.findOne({username: decode.username,deleted:false}).lean()
+            console.log(foundUser);
             const userInfo  = {
                 _id: foundUser._id,
                 username: foundUser.username,
