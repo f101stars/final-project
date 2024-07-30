@@ -26,38 +26,28 @@ const SideBar = () => {
   const { getFilePath } = useGetFilePath();
   
   const adminMenuItems = [{
-    title: "דפים",
     list: [
       { title: "ראשי", path: "/dash", icon: <MdDashboard /> },
       { title: "משתמשים", path: "/dash/users", icon: <MdOutlineBusinessCenter /> },
       { title: "קביעת תור", path: "/dash/turns-admin", icon: <MdCalendarMonth /> },
       { title: "סוגי טיפול", path: "/dash/types", icon: <HiOutlineShoppingBag /> },
-      { title: "מוצרים", path: "/dash/products", icon: <HiOutlineShoppingBag /> },
       { title: "המלצות", path: "/dash/posts", icon: <AiOutlineLike /> },
-      { title: "פעולות", path: "/dash/actions", icon: <MdPendingActions /> },
     ],
   }, {
-    title: "משתמש",
     list: [
-      { title: "הגדרות", path: "/dash/settings", icon: <MdOutlineSettings /> },
       { title: "הפרופיל שלי", path: `/dash/my-profile/${_id}`, icon: <MdPerson /> },
     ],
   }];
 
   const userMenuItems = [{
-    title: "דפים",
     list: [
       { title: "ראשי", path: "/dash", icon: <MdDashboard /> },
-      { title: "מוצרים", path: "/dash/products", icon: <HiOutlineShoppingBag /> },
       { title: "קביעת תור", path: "/dash/turns-user", icon: <MdCalendarMonth /> },
       { title: "מחירון", path: "/dash/prices", icon: <MdEuro /> },
       { title: "המלצות", path: "/dash/posts", icon: <AiOutlineLike /> },
-      { title: "פעולות", path: "/dash/actions", icon: <MdPendingActions /> },
     ],
   }, {
-    title: "משתמש",
     list: [
-      { title: "הגדרות", path: "/dash/settings", icon: <MdOutlineSettings /> },
       { title: "הפרופיל שלי", path: `/dash/my-profile/${_id}`, icon: <MdPerson /> },
     ],
   }];

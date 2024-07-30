@@ -17,11 +17,10 @@ const verifyJWT = require("../middelware/verifyJWT")
 const verifyAdmin = require("../middelware/verifyAdmin")
 
 router.use(verifyJWT)
-// router.use(verifyAdmin)
 
 router.get("/", userController.getAllUsers)
-router.get("/:_id", userController.getUserById)
-router.post("/", upload.single('image'), userController.creatUser)
+router.get("/:_id",userController.getUserById)
+router.post("/",verifyAdmin, upload.single('image'), userController.creatUser)
 router.put("/", upload.single('image'), userController.updateUser)
-router.delete("/", userController.deleteUser)
+router.delete("/",verifyAdmin, userController.deleteUser)
 module.exports = router

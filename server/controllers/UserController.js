@@ -1,13 +1,22 @@
 const User = require('../models/User')
 const bcrypt = require("bcrypt")
 const getAllUsers = async (req, res) => {
-    const users = await User.find({ deleted: false }, { password: 0 }).lean()
-    res.json({
-        error: false,
-        massage: "",
-        data: users
-    })
-
+    if (req.user.roles == 'Admin') {
+        const users = await User.find({ deleted: false }, { password: 0 }).lean()
+        res.json({
+            error: false,
+            massage: "",
+            data: users
+        })
+    }
+    else{
+        const user = await User.find({ deleted: false ,username:req.user.username}, { password: 0 }).lean()
+        res.json({
+            error: false,
+            massage: "",
+            data: user
+        })
+    }
 }
 
 const getUserById = async (req, res) => {
@@ -60,14 +69,14 @@ const updateUser = async (req, res) => {
             massage: "can't find the user",
             data: null
         })
-        if (_id != req.user._id && req.user.roles != "Admin") {
-            return res.status(405).json({
-                error: true,
-                message: "Unauthorized.",
-                data: null
-            })
-        }
-    
+    if (_id != req.user._id && req.user.roles != "Admin") {
+        return res.status(405).json({
+            error: true,
+            message: "Unauthorized.",
+            data: null
+        })
+    }
+
     user.fullname = fullname
     user.username = username
     user.email = email

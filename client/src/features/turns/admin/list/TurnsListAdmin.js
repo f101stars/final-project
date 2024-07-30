@@ -37,7 +37,9 @@ const TurnsListAdmin = () => {
             <div className="turns-list-table">
                 <tbody>
                     {filteredData.map((turn) => (
+
                         <div className='turn-in-list' key={turn._id}>
+                            {/* {console.log(turn)} */}
                             <h3 className='date'>{formatDate(turn.turnDate)}</h3>
                             <div className='times'>
                                 <div>
@@ -56,7 +58,7 @@ const TurnsListAdmin = () => {
                                     <Link className='turns-list-button turns-list-view' to={`/dash/turns-admin/${turn._id}`}>
                                         עריכה
                                     </Link>
-                                    <button onClick={() => deleteClick(turn)} className="turns-list-button turns-list-delete">
+                               <button onClick={() => deleteClick(turn)} className="turns-list-button turns-list-delete">
                                         ביטול
                                     </button>
                                 </div>

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import useGetFilePath from "../../../../hooks/useGetFilePath";
 const SingleTurn = () => {
   const { turnId } = useParams()
-  const { data: turnsObject, isError, error, isLoading } = useGetAllTurnsQuery()
+   const { data: turnsObject, isError, error, isLoading } = useGetAllTurnsQuery()
   const [updateTurn, { isSuccess: isUpdateSuccess }] = useUpdateTurnMutation()
   const { getFilePath } = useGetFilePath()
 
@@ -47,7 +47,8 @@ const SingleTurn = () => {
 
 
   if (isLoading) return <h1> Loading ...</h1>
-  const turn = turnsObject.data.find(u => u.id === turnId)
+  const turn = turnsObject.data.find(u => u._id === turnId)
+  console.log("turn",turn);
   if (isError) return <h1>{JSON.stringify(error)}</h1>
   if (!turn) return <h1>{"Not found"}</h1>
   // console.log(turn) 

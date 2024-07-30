@@ -38,7 +38,6 @@ const Profile = () => {
       </div> 
       <div className="single-user-form-container">
         <form onSubmit={formSubmit} className="single-user-form">
-
           <label>שם משתמש</label>
           <input readOnly={true} type="text" name="username" defaultValue={user.username} />
           <label>שם מלא</label>
