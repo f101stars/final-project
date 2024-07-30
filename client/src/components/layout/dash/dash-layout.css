@@ -7,6 +7,8 @@ flex:1;
 background-color: var(--bgSoft);
 padding: 20px;
 min-height: 100vh;
+border-left: solid 2px var(--green);
+color:var(--pink)
 }
 
 .content{
