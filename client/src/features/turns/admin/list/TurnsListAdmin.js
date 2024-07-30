@@ -31,8 +31,8 @@ const TurnsListAdmin = () => {
     return (
         <div className="turns-list">
             <div className="turns-list-top">
-                <Search placeholder="Search for a turn..." />
-                <Link className="turns-list-add-button" to="/dash/turns-admin/add">תור חדש</Link>
+                <Search placeholder="חיפוש" />
+                <Link className="turns-list-add-button t" to="/dash/turns-admin/add">תור חדש</Link>
             </div>
             <div className="turns-list-table">
                 <tbody>

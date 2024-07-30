@@ -23,7 +23,7 @@ const UsersList = () => {
     return (
         <div className="users-list">
             <div className="users-list-top">
-                <Search placeholder="Search for a user..." />
+                <Search placeholder="חיפוש" />
                 <Link className="users-list-add-button" to="/dash/users/add">משתמש חדש</Link>
             </div>
             <div className="users-list-table">
@@ -42,11 +42,9 @@ const UsersList = () => {
                                 </div>
                             </p>
                             <p>{user.username}</p>
-
                             <p>{user.email}</p>
 
                             <p>{user.roles === "Admin" ? "הרשאה: מנהל" : "הרשאה: משתמש"}</p>
-                            <p>{user.active ? "פעיל" : "לא פעיל"}</p>
                             <p>{user.phone}</p>
 
                             <p>

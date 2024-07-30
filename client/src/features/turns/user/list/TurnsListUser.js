@@ -29,7 +29,7 @@ const TurnsListUser = () => {
     return (
         <div className="turns-list">
             <div className="turns-list-top">
-                <Search placeholder="Search for a turn..." />
+                <Search placeholder="חיפוש" />
                 <Link className="turns-list-add-button" to="/dash/turns-user/add">תור חדש</Link>
             </div>
             <table className="turns-list-table">

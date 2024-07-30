@@ -13,9 +13,8 @@
   
   .types-list-add-button{
     padding: 10px;
-    background-color: #5d57c9;
-    color: var(--text);
-    border: none;
+    color: var(--pink);
+    border: solid 2px var(--pink);
     border-radius: 5px;
     cursor: pointer;
   }
@@ -58,4 +57,8 @@
   
   .types-list-delete{
     background-color: crimson;
+  }
+  .title td{
+    color: var(--green); 
+     font-size: 20px;
   }

@@ -39,6 +39,11 @@ const PostsList = () => {
     return (
         <div className="posts-list">
             <div className="posts-list-table">
+            <form onSubmit={submitForm}  className="add-post-form">
+                    <input type="text" placeholder="תוסיפי את ההמלצה שלך..." name="text" required />
+                    <input value={user._id} name="user" type="hidden" />
+                    <button type="submit">{<MdArrowBack/>}</button>
+                </form>
                 <tbody>
                     {filteredData.map((post) => (
                         <div className="post-in-list" key={post.id}>
@@ -64,11 +69,7 @@ const PostsList = () => {
                         </div>
                     ))}
                 </tbody>
-                <form onSubmit={submitForm}  className="add-post-form">
-                    <input type="text" placeholder="תוסיפי את ההמלצה שלך..." name="text" required />
-                    <input value={user._id} name="user" type="hidden" />
-                    <button type="submit">{<MdArrowBack/>}</button>
-                </form>
+            
             </div>
         </div>
     );

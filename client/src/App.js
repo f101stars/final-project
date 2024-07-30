@@ -19,6 +19,8 @@ import SingleType from './features/types/view/SingleType';
 import Profile from './features/profile/Profile';
 import PricesList from './features/prices/list/PricesList';
 import PostsList from './features/posts/PostList';
+import Dash from './components/dash/Dash';
+import Site from './components/layout/site/Site';
 
 function App() {
   return (
@@ -26,13 +28,13 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<SiteLayuot />}>
-            <Route index element={<h1>Site</h1>} />
+            <Route index element={<Site />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path='*' element={<Page404 />} />
             <Route element={<PersistLogin />}>
               <Route element={<RequireAuth allowRoles={["Admin", "User"]} />}>
                 <Route path='/dash' element={<DashLayout />}>
-                  <Route index element={<h1>Dashboard</h1>} />
+                  <Route index element={<Dash/>} />
                   <Route element={<RequireAuth allowRoles={["Admin"]} />}>
                     <Route path='users' element={<Outlet />}>
                       <Route index element={<UsersList />} />

@@ -2,9 +2,11 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: #2e374a;
+    /* background-color: #2e374a; */
     border-radius: 10px;
+    border: solid 2px var(--pink);
     padding: 10px;
+    color: var(--pink);
 }
 
 .search-input{

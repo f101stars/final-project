@@ -27,10 +27,10 @@ const TypesList = () => {
             </div>
             <table className="types-list-table">
                 <thead>
-                    <tr>
-                        <td>תיאור</td>
-                        <td>זמן</td>
-                        <td>מחיר</td>
+                    <tr className='title'>
+                        <td >תיאור</td>
+                        <td >זמן</td>
+                        <td >מחיר</td>
                     </tr>
                 </thead>
                 <tbody>

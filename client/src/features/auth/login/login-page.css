@@ -16,24 +16,29 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap:30px
+    gap:30px;
+    border: solid 2px var(--green);
 
 }
 .login-page-form input{
     width: 100%;
     padding: 30px;
-    border: solid 2px #2e374a;
+    border: solid 2px var(--green);
     border-radius: 5px;
     background-color: var(--bg);
     color: var(--text)
 }
 
 .login-page-form button{
-    width: 100%;
+    width: 60%;
     padding: 30px;
-    background-color: teal;
-    color: var(--text);
-    border: none;
+    background-color: white;
+    color: var(--pink);
+    border: solid 2px var(--pink);
     cursor: pointer;
     border-radius: 5px;
+    font-size: large;
+}
+h1{
+    color:var(--pink)
 }

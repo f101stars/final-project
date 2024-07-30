@@ -27,7 +27,7 @@ const AddUser = () => {
                     required
                 />
                 <input type="text" placeholder="שם מלא" name="fullname" required />
-                <input type="email" placeholder="מייל" name="email" required />
+                <input type="email" placeholder="מייל" name="email"/>
                 <input type="phone" placeholder="טלפון" name="phone" required />
                 <select name="roles" id="roles">
                     <option value="User">

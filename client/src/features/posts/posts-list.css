@@ -46,6 +46,8 @@
     box-shadow: 0 0 5px white;
     padding: 20px;
     margin: 10px;
+    border: solid 2px var(--green);
+
 }
 
 .posts-list-buttons {
@@ -80,10 +82,11 @@
     margin: 10px;
     margin-bottom: 30px;
     width: 60vw;
+    border: solid 2px var(--pink);
 }
 
 .add-post-form button {
-    background-color: teal;
+    background-color: var(--pink);
     color: var(--text);
     border: none;
     border-radius: 5px;
