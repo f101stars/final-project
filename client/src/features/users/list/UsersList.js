@@ -27,17 +27,6 @@ const UsersList = () => {
                 <Link className="users-list-add-button" to="/dash/users/add">משתמש חדש</Link>
             </div>
             <div className="users-list-table">
-                <thead>
-                    {/* <div>
-                        <p>שם</p>
-                        <p>שם משתמש</p>
-                        <p>מייל</p>
-                        <p>הרשאה</p>
-                        <p>פעיל</p>
-                        <p>טלפון</p>
-                        <p>פעולות</p>
-                    </div> */}
-                </thead>
                 <tbody>
                     {filteredData.map((user) => (
                         <div className="user-in-list" key={user.id}>

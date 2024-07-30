@@ -1,0 +1,92 @@
+.posts-list {
+    background-color: var(--bgSoft);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.posts-list-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.posts-list-add-button {
+    padding: 10px;
+    background-color: #5d57c9;
+    color: var(--text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.posts-list-table {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.posts-list-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.posts-list-post-image {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-in-list {
+    border-radius: 20px;
+    box-shadow: 0 0 5px white;
+    padding: 20px;
+    margin: 10px;
+}
+
+.posts-list-buttons {
+    display: flex;
+    gap: 10px;
+    direction: ltr;
+}
+
+.posts-list-button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: var(--text);
+    border: none;
+    cursor: pointer;
+}
+
+.posts-list-view {
+    background-color: teal;
+}
+
+.posts-list-delete {
+    background-color: crimson;
+}
+
+.add-post-form input {
+    padding: 30px;
+    background:none;
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 5px white;
+    padding: 20px;
+    margin: 10px;
+    margin-bottom: 30px;
+    width: 60vw;
+}
+
+.add-post-form button {
+    background-color: teal;
+    color: var(--text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size:30px;
+}

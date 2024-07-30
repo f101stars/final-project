@@ -18,6 +18,7 @@ import AddType from './features/types/add/AddType';
 import SingleType from './features/types/view/SingleType';
 import Profile from './features/profile/Profile';
 import PricesList from './features/prices/list/PricesList';
+import PostsList from './features/posts/PostList';
 
 function App() {
   return (
@@ -58,6 +59,9 @@ function App() {
                   </Route>
                   <Route path='prices' element={<Outlet />}>
                     <Route index element={<PricesList />} />
+                  </Route>
+                  <Route path='posts' element={<Outlet />}>
+                    <Route index element={<PostsList />} />
                   </Route>
                 </Route>
               </Route>

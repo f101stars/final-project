@@ -2,7 +2,6 @@ import "./add-user.css"
 import { useAddUserMutation } from "../usersApiSlice"
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import useGetFilePath from "../../../hooks/useGetFilePath";
 const AddUser = () => {
     const [addUser, { isSuccess }] = useAddUserMutation()
     const navigate = useNavigate()
