@@ -10,7 +10,7 @@ h1{
     gap: 20px;
     justify-content: center;
 }
-button{
+.b{
     width: 20%;
     padding: 3px;
     background-color: white;

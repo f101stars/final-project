@@ -25,7 +25,7 @@ const Dash = ()=>{
         <li>כתובת: נהר הירדן 15 ב"ש</li>
     </ul>
 </div>
-    <button><NavLink to="./posts">להמלצות</NavLink></button>
+    <button className="b"><NavLink to="./posts">להמלצות</NavLink></button>
 
     </div>
 
