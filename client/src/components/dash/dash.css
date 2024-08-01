@@ -1,0 +1,23 @@
+h3{
+    color: var(--green);
+}
+h1{
+    text-align: center;
+}
+.home{
+    display:flex ;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+button{
+    width: 20%;
+    padding: 3px;
+    background-color: white;
+    color: var(--pink);
+    border: solid 2px var(--pink);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: large;
+    direction: ltr;
+}

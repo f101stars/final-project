@@ -91,6 +91,7 @@
     background: none;
     width: 200px; /* גודל התפריט */
     z-index: 1000; /* מבטיח שהתפריט יהיה מעל תוכן אחר */
+
 }
 
 .hiden-menu-container:hover .side-bar-hidden {
@@ -131,7 +132,9 @@
     top: 40px;
     transition: transform 0.3s ease; /* מעבר חלק כשמסתיר ומציג */
 }
-
+.menu{
+    border: none;
+}
 /* שאר הסטיילים שלך... */
 
 }
